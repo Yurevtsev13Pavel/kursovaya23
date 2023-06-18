@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+
+    {% block js %}
+    {% endblock %}
+
+    <title>Zooлавка</title>
+
+</head>
+<body>
+
+<style>
+    background-image: url('{% static "img/sl_1.jpg"%}');
+</style>
+
+
+ <div class="fix_header">
+        <div class="header">
+            <img class="logo" src="/static/img/zoo.png">
+            <div class="menu">
+                <a class="a_1" href="{% url 'cat:main' %}">Главная</a>
+                <a class="a_1" href="{% url 'cat:list' %}">Товары</a>
+                <a class="a_1" href="uslugi.html">Услуги</a>
+                <a class="a_1" href="#slaid_6">Контакты</a>
+            </div>
+            <div class="icons">
+                <a class="ic" href="prof.html"><img class="icon" src="/static/img/prof.png"></a>
+                <a class="ic" href="{% url 'cart:cart' %}"><img class="icon" src="/static/img/cor.png"></a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="claid"> <div class="blocke">
+        {% block content %}
+        {% endblock %}
+    </div> </div>
+
+
+
+
+
+
+
+    <div class="slaid_8">
+        <div class="div_13">
+            <img src="/static/img/zoo.png">
+            <div class="line_footer"></div>
+            <div class="a_p">
+                <div>
+                    <a href="{% url 'cat:main' %}">Главная</a>
+                    <a href="{% url 'cat:list' %}">Товары</a>
+                    <a href="#">Услуги</a>
+                    <a href="#slaid_6">Контакты</a>
+                </div>
+                <p>©zooлавка</p>
+            </div>
+            <div class="contact_footer">
+                <a href="https://www.instagram.com/zooexpert45"> <img src="/static/img/inst.png"></a>
+                <a href="https://vk.com/zooexpert45?ysclid=lbjn5pp4in944689038"> <img src="/static/img/vk20.png"></a>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
