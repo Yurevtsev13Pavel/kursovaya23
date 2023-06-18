@@ -1,0 +1,13 @@
+from django.urls import path
+
+from cart.views import CartListView, delete_from_cart, change_product_view
+from catalog.views import Main_View, Prof_View
+
+app_name = 'cart'
+
+urlpatterns = [
+    path('', CartListView.as_view(), name='cart'),
+    path('delete/<int:pk>/', delete_from_cart, name='delete'),
+    path('change/<int:pk>/<int:count>/', change_product_view, name='change'),
+
+]

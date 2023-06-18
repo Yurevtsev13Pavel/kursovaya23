@@ -1,0 +1,46 @@
+{% extends 'root.html' %}
+{% block content %}
+    {% for products in product_list %}
+        {% include 'catalog/product_list_item.html' %}
+    {% endfor %}
+    <ul class="pag">
+        {% if product_list.has_previous %}
+            <a href="{% url 'cat:list' %}?page={{product_list.previous_page_number}}" class="text-reset">
+        {% endif %}
+        <li class="list-group-item">
+        
+            &lt;
+        </li>
+        {% if product_list.has_previous %}
+            </a>
+        {% endif %}
+    
+        {% for i in paginator.page_range %}
+            {% if i != product_list.number %}
+                <a href="{% url 'cat:list' %}?page={{i}}" class="text-reset">
+            {% endif %}
+                <li class="list-group-item
+                    {% if i == product_list.number %}
+                        active
+                    {% endif %}">
+                    {{i}}
+                </li>
+            {% if i != product_list.number %}
+                </a>
+            {% endif %}
+        {% endfor %}
+
+        {% if product_list.has_next %}
+            <a href="{% url 'cat:list' %}?page={{product_list.next_page_number}}" class="text-reset">
+        {% endif %}
+        <li class="list-group-item">
+        
+            &gt;
+        </li>
+        {% if product_list.has_next %}
+            </a>
+        {% endif %}
+            
+    </ul>
+    <p class="fs-14 font-monospace font-roboto-helvetica">Всего {{ product_list|length }} объектов</p>
+{% endblock %}
